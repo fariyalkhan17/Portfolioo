@@ -195,4 +195,16 @@ if (skillsSection) {
     skillObserver.observe(skillsSection);
 }
 
+// ── GOOGLE DRIVE LINKS ──────────────────────────────────────────
+if (window.PORTFOLIO_CONFIG) {
+    document.querySelectorAll('[data-doc]').forEach(link => {
+        const docId = link.getAttribute('data-doc');
+        if (window.PORTFOLIO_CONFIG[docId] && window.PORTFOLIO_CONFIG[docId] !== '#') {
+            link.href = window.PORTFOLIO_CONFIG[docId];
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+        }
+    });
+}
+
 console.log('Portfolio loaded ✨');
